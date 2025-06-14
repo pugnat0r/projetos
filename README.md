@@ -1,3 +1,3 @@
-# projetos ipositório onde irei colocar meus projetes teste e estudos.
+# projetos repositório onde irei colocar meus projetos teste e estudos.
 
 Teste de commit com o README.md
