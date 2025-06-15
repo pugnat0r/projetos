@@ -1,3 +1,6 @@
 Bem-Vindo a aula 01, esse texto é um teste das ramificações do repositório local.
 
+
+Eu quero mudar o carai da mensagem de commit
+
 sdsadjdsajkadkjladslkjasdjlkadajklsddsak
