@@ -1,0 +1,15 @@
+<calculadora>:
+    orientation:'vertical'
+    Button:
+        id: button_mais
+        text: '+'
+        on_release: label.text = str(int(label.text)+1)
+
+    Button:
+        id: Button_menos
+        text: '-'
+        on_release: label.text = str(int(label.text)-1)
+
+    Label:
+        id: label
+        text: '1'
