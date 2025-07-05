@@ -26,9 +26,8 @@ menu = f"""
 """
 
 while True:
-    # clear()
-    escolha = input(menu + mensagem + "Escolha uma opção: ").strip()
-    print(escolha)
+    clear()
+    escolha = input(menu + mensagem + "Escolha uma opção: ")
 
     if escolha == "1":
         deposito = float(input("Digitie o valor do depósito: "))
@@ -39,13 +38,21 @@ while True:
         else:
             mensagem = "Operação falhou! O valor do depósito deve ser positivo.\n"
 
-    if escolha == "2":
+    elif escolha == "2":
         saque = float(input("Digite o valor do saque: "))
-        if saque > 500:
-            mensagem = f"\nSaque maior que o Limite Diário de R$ 500,00 ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
-        elif saque > 0 and saque <= saldo:
+
+        if numero_saques > NUMERO_SAQUES:
+            print("Você já atingiu o limite de saques diários. São apenas 3 por dia!")
+
+       #elif limite_saque_valor:
+            print(
+                "Você já atingiu o limite de saque diário. O valor máximo é de R$ 500,00!")
+
+       # elif limite_saldo:
             saldo -= saque
-            extrato += f"Saque: R$ {saque}"
-            mensagem = f"\nSaque realizado com sucesso! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
+            estrato += f"Saque: R$ {saque:.2f}\n"
+            mensagem = f"Saque realizado com sucesso! Saldo R$ {saldo:.2f}\n\n========================================\n"
+
         else:
-            mensagem = f"\nOperação falhou! Saldo insuficiente!! ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
+            mensagem = "Operação falhou! Você não tem saldo suficiente.\n"
+        print("Hello Wolrd")
