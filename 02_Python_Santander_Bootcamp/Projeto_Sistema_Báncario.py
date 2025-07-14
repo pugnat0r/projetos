@@ -39,6 +39,7 @@ while True:
             saldo += deposito
             extrato += f"Depósito: R$ {deposito:.2f}\n"
             mensagem = f"\nDepósito realizado com sucesso! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
+
         else:
             mensagem = "\nOperação falhou! O valor do depósito deve ser positivo.\n\n========================================\n"
 
@@ -51,11 +52,11 @@ while True:
 
         elif (saque <= limite):
             if saque < 0:
-                mensagem = f"\nSaque não poede ser um valor negativo ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
+                mensagem = f"\nSaque não pode ser um valor negativo ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
             elif saque <= saldo:
                 saldo -= saque
                 numero_saques += 1
-                extrato += f"Saque: R$ {saque}\n"
+                extrato += f"Saque: R$ {saque:.2f}\n"
                 mensagem = f"\nSaque realizado com sucesso! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
             else:
                 mensagem = f"\nOperação falhou! Saldo insuficiente!! ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
