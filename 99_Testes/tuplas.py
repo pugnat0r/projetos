@@ -1,4 +1,12 @@
+numeros = [2, 3, 4, 5, 5]
 
-minha_tupla = (1, 2, 3, 2, 4, 2)
+numeros[0] = 10
 
-print(minha_tupla.index(2, 2, 4))
+print((numeros))
+
+numeros = {2, 3, 4, 5, 5}
+
+print((numeros))
+
+set_nome = {"Python", "java", "Python"}
+print(set_nome)
