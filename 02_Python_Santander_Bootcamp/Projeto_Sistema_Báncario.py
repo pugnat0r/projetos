@@ -31,6 +31,8 @@ while True:
     escolha = input(menu + mensagem + "Escolha uma opção: ").strip()
     print(escolha)
 
+# Depositar
+
     if escolha == "1":
         deposito = float(
             input("========================================\nDigitie o valor do depósito: "))
@@ -42,6 +44,8 @@ while True:
 
         else:
             mensagem = "\nOperação falhou! O valor do depósito deve ser positivo.\n\n========================================\n"
+
+# Sacar
 
     if escolha == "2":
         saque = float(
@@ -62,6 +66,8 @@ while True:
                 mensagem = f"\nOperação falhou! Saldo insuficiente!! ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
         else:
             mensagem = f"\nSaque maior que o Limite de R$ 500,00 ! Saldo atual: R$ {saldo:.2f}\n\n========================================\n"
+
+# Extrato
 
     if escolha == "3":
         mensagem = f"\n=============== EXTRATO ================\n\n{extrato} \n\nSaldo Atual: R$ {saldo:.2f}\n\n========================================\n"

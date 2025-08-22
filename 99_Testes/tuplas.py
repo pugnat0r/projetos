@@ -1,12 +1,5 @@
-numeros = [2, 3, 4, 5, 5]
+conjunto_a = {1, 2, 3}
+conjunto_b = {4, 1, 2, 5, 6, 3}
 
-numeros[0] = 10
-
-print((numeros))
-
-numeros = {2, 3, 4, 5, 5}
-
-print((numeros))
-
-set_nome = {"Python", "java", "Python"}
-print(set_nome)
+print(conjunto_a.issuperset(conjunto_b))
+print(conjunto_b.issuperset(conjunto_a))

@@ -11,4 +11,4 @@ print(nome.rstrip())  # Remove espaços no final
 
 print(nome.center(14)) # Centraliza a string com espaços como preenchimento
 print(nome.title().strip().center(14, "#"))  # Centraliza a string com '#' como preenchimento
-print("-".join(nome1)) # Une os caracteres da string com '-' 
+print("-".join(nome1)) # Une os caracteres da string com '-'
