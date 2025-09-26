@@ -1,11 +1,7 @@
-from textwrap import fill
 import customtkinter
-
-# watchmedo auto-restart -d . -p "*.py" -- python Projeto_Sistema_Báncario_v3.py
 
 
 class WalletApp(customtkinter.CTk):
-
     def __init__(self):
         super().__init__()
         self.geometry("600x500")
@@ -25,10 +21,11 @@ class WalletApp(customtkinter.CTk):
     def show_frame(self, tela_class):
         """Mostra a tela desejada"""
         if tela_class not in self.frames:
+            # 👈 recebe parent e controller
             frame = tela_class(self.container, self)
             self.frames[tela_class] = frame
-        else:
-            frame = self.frames[tela_class]
+
+        frame = self.frames[tela_class]
 
         # Esconde todas as telas
         for f in self.frames.values():
@@ -38,10 +35,9 @@ class WalletApp(customtkinter.CTk):
         frame.pack(fill="both", expand=True)
 
 
-class WalletLogin(customtkinter.CTkFrame):
-
-    def __init__(self):
-        super().__init__()
+class WalletLogin(customtkinter.CTkFrame):  # 👈 Agora é um frame
+    def __init__(self, parent, controller):
+        super().__init__(parent)
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -56,7 +52,7 @@ class WalletLogin(customtkinter.CTkFrame):
             font=("Arial", 15),
             text_color="grey"
         )
-        self.label0.grid(row=2, column=1, pady=(190, 5))
+        self.label0.pack(pady=10)
 
         self.label1 = customtkinter.CTkLabel(
             self,
@@ -64,42 +60,58 @@ class WalletLogin(customtkinter.CTkFrame):
             font=("Arial", 19),
             text_color="green"
         )
-        self.label1.grid(row=1, column=1, pady=1)
+        self.label1.pack(pady=10)
 
-        # Campo de entrada para o nome de usuário
         self.entry_username = customtkinter.CTkEntry(
             self,
-            placeholder_text="     CPF do usuário"
+            placeholder_text="CPF do usuário"
         )
-        self.entry_username.grid(row=1, column=1, pady=(80, 5))
+        self.entry_username.pack(pady=10)
 
         self.entry_password = customtkinter.CTkEntry(
             self,
-            placeholder_text="     Senha do usuário"
+            placeholder_text="Senha do usuário",
+            show="*"
         )
-        self.entry_password.grid(row=1, column=1, pady=(160, 5))
+        self.entry_password.pack(pady=10)
 
+        # Botão que troca de tela para HomePage
         self.button0 = customtkinter.CTkButton(
             self,
             text="Entrar",
-            command=self.destroy
+            command=lambda: controller.show_frame(HomePage)
         )
-        self.button0.grid(row=1, column=1, pady=(240, 5))
+        self.button0.pack(pady=10)
 
         self.button1 = customtkinter.CTkButton(
             self,
             text="Cadastrar-se",
-            command=self.destroy
+            command=lambda: print("Cadastrar...")
         )
-        self.button1.grid(row=2, column=2, pady=(190, 5))
+        self.button1.pack(pady=10)
 
-        self.button1 = customtkinter.CTkButton(
+        self.button2 = customtkinter.CTkButton(
             self,
             text="Sair",
-            command=self.destroy
+            command=controller.destroy
         )
-        self.button1.grid(row=2, column=0, pady=(190, 5))
+        self.button2.pack(pady=10)
 
 
-inicialização = WalletApp()
-inicialização.mainloop()
+class HomePage(customtkinter.CTkFrame):  # 👈 Outra tela
+    def __init__(self, parent, controller):
+        super().__init__(parent)
+
+        label = customtkinter.CTkLabel(self, text="Bem-vindo à HomePage!")
+        label.pack(pady=20)
+
+        voltar_btn = customtkinter.CTkButton(
+            self,
+            text="Voltar para Login",
+            command=lambda: controller.show_frame(WalletLogin)
+        )
+        voltar_btn.pack(pady=10)
+
+
+inicializacao = WalletApp()
+inicializacao.mainloop()
