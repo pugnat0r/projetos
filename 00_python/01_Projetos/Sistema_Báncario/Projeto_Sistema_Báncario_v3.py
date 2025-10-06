@@ -1,7 +1,9 @@
+from cgitb import text
 from textwrap import fill
 import customtkinter
 
-# watchmedo auto-restart -d . -p "*.py" -- python Projeto_Sistema_Báncario_v3.py
+global usuarios
+usuarios = []
 
 
 class WalletApp(customtkinter.CTk):
@@ -80,10 +82,21 @@ class WalletLogin(customtkinter.CTkFrame):
         )
         self.entry_password.grid(row=1, column=1, pady=(160, 5))
 
+        self.button3 = customtkinter.CTkButton(
+            self,
+            text="O",
+            width=25,
+            height=25,
+            command=lambda: self.entry_password.configure(
+                show="" if self.entry_password.cget("show") == "*" else "*")
+        )
+        self.button3.grid(row=1, column=1, pady=(160, 5), padx=(175, 0))
+
         self.button0 = customtkinter.CTkButton(
             self,
             text="Entrar",
-            command=lambda: controller.show_frame(HomePage))
+            command=self.login
+        )
         self.button0.grid(row=1, column=1, pady=(240, 5))
 
         self.button1 = customtkinter.CTkButton(
@@ -100,13 +113,29 @@ class WalletLogin(customtkinter.CTkFrame):
         )
         self.button2.grid(row=2, column=0, pady=(190, 5))
 
+    def login(self):
+        cpf = self.entry_username.get()
+        senha = self.entry_password.get()
+
+        for usuario in usuarios:
+            if cpf == usuario["CPF"] and senha == usuario["senha"]:
+                self.entry_username.delete(0, 'end')
+                self.entry_password.delete(0, 'end')
+                self.controller.show_frame(HomePage)
+                return
+
+        self.label1.configure(text="Login inválido!", text_color="#ff6666")
+        self.label1.after(5000, lambda: self.label1.configure(
+            text="Login", text_color="green"))
+
 
 class RegisterPage(customtkinter.CTkFrame):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
 
-        self.usuarios = []
+        global usuarios
+        usuarios = []
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -153,10 +182,14 @@ class RegisterPage(customtkinter.CTkFrame):
         )
         self.button.grid(row=0, column=1, pady=(210, 5))
 
+        self.label = customtkinter.CTkLabel(self, text="")
+        self.label.grid(row=2, column=1, pady=(0, 0))
+
         self.button = customtkinter.CTkButton(
             self,
             text="Voltar",
-            command=lambda: controller.show_frame(WalletLogin)
+            command=lambda: [self.label.configure(
+                text=""), controller.show_frame(WalletLogin)]
         )
         self.button.grid(row=3, column=0, pady=(0, 0))
 
@@ -174,19 +207,48 @@ class RegisterPage(customtkinter.CTkFrame):
         address = self.entry_address.get()
         password = self.entry_password.get()
 
-        self.usuarios.append(
+        # -----------------------------------------------------------------------------------
+
+        if born_date.isdigit() and len(born_date) == 8:
+            born_date = f"{born_date[:2]}/{born_date[2:4]}/{born_date[4:8]}"
+        else:
+
+            return self.label.configure(text="\n\n    Entre com uma data no formato certo! 13122001! \n\n")
+        # -----------------------------------------------------------------------------------
+
+        # -----------------------------------------------------------------------------------
+
+        if cpf.isdigit() and len(cpf) == 11:
+            if any(cpf == interando["CPF"] for interando in usuarios):
+                return self.label.configure(text="\n\n    CPF já cadastrado! \n\n")
+
+        else:
+
+            return self.label.configure(text="\n\n    Entre com um cpf no formato certo! xxxXXXxxxXX \n\n")
+        # -----------------------------------------------------------------------------------
+
+        # -----------------------------------------------------------------------------------
+        address = f"{address[:2]}"
+        # -----------------------------------------------------------------------------------
+
+        usuarios.append(
             {"nome": nome, "born_date": born_date, "CPF": cpf,
              "address": address, "senha": password, "saldo": 0, "extrato": ""}
         )
+
         self.entry_born_date.delete(0, 'end')
         self.entry_nome.delete(0, 'end')
         self.entry_cpf.delete(0, 'end')
         self.entry_address.delete(0, 'end')
         self.entry_password.delete(0, 'end')
 
+        # deletar os dados dos entrys e apagar as mensagem de erro
+        self.label.configure(text="")
         self.controller.show_frame(WalletLogin)
 
-        print(self.usuarios)
+        # -----------------------------------------------------------------------------------
+
+        print(usuarios)
 
 
 class HomePage(customtkinter.CTkFrame):
