@@ -58,3 +58,15 @@ watchmedo auto-restart -d . -p "*.py" -- python main.py
 
     os.mkdir(ROOT_PATH / "nome_da_pasta")
 
+
+
+
+
+
+
+
+node js 
+
+
+parei em 11 minutos : https://www.youtube.com/watch?v=hHM-hr9q4mo&t=288s
+
