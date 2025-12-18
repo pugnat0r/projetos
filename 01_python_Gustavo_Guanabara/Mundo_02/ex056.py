@@ -3,8 +3,9 @@
 # A média de idade do grupo
 # Qual é o nome do homem mais velho
 # Quantas mulheres têm menos de 20 anos.
+from datetime import date
 
-
+year = date.today().year
 pessoas = []
 somar_da_idades = 0
 olderest = ""
@@ -16,9 +17,9 @@ for c in range(1, 5):
 
     print(f"----- {c}° PESSOA -----")
 
-    user = str(input("Nome: ")).strip()
+    user = str(input("Nome: ")).strip() 
     born_date = int(input("Ano de nascimento: "))
-    print(f"{2025 - born_date} anos")
+    print(f"{year - born_date} anos")
     sex = str(input("Sex: ")).strip()
 
     pessoas.append(
@@ -28,18 +29,18 @@ for c in range(1, 5):
 
 for c in range(0, 4):
 
-    somar_da_idades += 2025 - pessoas[c]["born_date"]
+    somar_da_idades += year - pessoas[c]["born_date"]
 
     if pessoas[c]["born_date"] < contador and pessoas[c]["sex"].lower() == "m":
         contador = pessoas[c]["born_date"]
         olderest = pessoas[c]["nome"]
 
-    if pessoas[c]["sex"].lower() == "f" and (2025 - pessoas[c]["born_date"]) < 20:
+    if pessoas[c]["sex"].lower() == "f" and (year - pessoas[c]["born_date"]) < 20:
         mulheres_menos_de_20 += 1
+
 
 print("A média de idade do grupo é {:.1f} anos.".format(somar_da_idades / 4))
 
-print(f"O homem mais velho é {olderest}")
+print(f"O homem mais velho é {olderest} com {year - contador} anos.")
 
-print(
-    f"Tem um total de {mulheres_menos_de_20} mulheres com menos de 20 anos de idade.")
+print(f"Tem um total de {mulheres_menos_de_20} mulheres com menos de 20 anos de idade.")

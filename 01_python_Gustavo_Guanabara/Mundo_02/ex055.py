@@ -10,7 +10,7 @@ for c in range(1, 6):
     if n > pesada or pesada == 0:
         pesada = n
 
-    elif n < leve or leve == 0:
+    if n < leve or leve == 0:
         leve = n
 
 print(f"A pessoa mais pesada pesa {pesada}kg")
