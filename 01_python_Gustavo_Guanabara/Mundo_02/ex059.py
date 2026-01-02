@@ -40,11 +40,11 @@ while True:
 
     elif escolha_usuario == 3:
         if n1 > n2:
-            print(f"O número {n1} é maior que o número {n2}")
+            print(f"\nO número {n1} é maior que o número {n2}")
             pause("\nAperte qualquer tecla para continuar...")
 
         elif n2 > n1:
-            print(f"O número {n2} é maior que o número {n1}")
+            print(f"\nO número {n2} é maior que o número {n1}")
             pause("\nAperte qualquer tecla para continuar...")
         else:
             print("\nOs dois números são iquais.")
@@ -59,3 +59,7 @@ while True:
         sleep(2)
         clear()
         break
+
+    else:
+        print("\n Opção inválida! Tente Novamente.")
+        pause("\nAperte qualquer tecla para continuar...")
