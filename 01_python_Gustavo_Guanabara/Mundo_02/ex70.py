@@ -24,7 +24,7 @@ while True:
 
     total_compra += preço
 
-    if preço >= 1000:
+    if preço >= 1000:   
         one_thousands += 1
 
     if preço <= mais_cheap or mais_cheap == 0:
@@ -36,6 +36,6 @@ while True:
 
 print("~"*40)
 print(f"O total da compra foi R$ {total_compra}")
-print(f"Temos {one_thousands} custando mais de R$ 1000.00")
+print(f"Temos {one_thousands} produtos custando mais de R$ 1000.00")
 print(f"O produto mais barato foi {nome_mais_cheap} que custa {mais_cheap}")
 print("~"*40)

@@ -6,7 +6,7 @@ cont = soma = 0
 
 while True:
 
-    números = int(input("[ 999 ] TPara Sair - Digite um número: "))
+    números = int(input("[ 999 ] Para Sair - Digite um número: "))
 
     if números == 999:
         break

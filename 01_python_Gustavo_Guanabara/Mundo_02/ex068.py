@@ -5,6 +5,7 @@
 import random
 from click import clear, pause
 
+user_type = ""
 win = pc_number = soma = 0
 
 while True:
@@ -17,7 +18,11 @@ while True:
     print("=-" * 20)
 
     user_number = int(input("\nEscolha um número 1-10: "))
-    user_type = str(input("\nPar ou Ímpar? [P/I]")).upper().strip()[0]
+
+    user_type = ""
+    while user_type == "" or user_type not in "PI":
+        user_type = str(input("\nPar ou Ímpar? [P/I]")).upper().strip()[0]
+
 
     print(f"\nVocê jogou: {user_number}")
     print(f"\nA máquina jogou: {pc_number}")

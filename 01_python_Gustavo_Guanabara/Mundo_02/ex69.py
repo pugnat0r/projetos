@@ -27,7 +27,7 @@ while True:
         new_cadastro = str(
             input("Quer cadastrar mais uma pessoa? [S/N] ")).strip()
 
-    if idade > 18:
+    if idade >= 18:
         maior_18 += 1
 
     if type_sex in "Mm":
