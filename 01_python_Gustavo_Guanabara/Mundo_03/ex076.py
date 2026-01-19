@@ -13,7 +13,7 @@ print("-"*55)
 print(f"{'LISTAGEM DE PREÇOS':^45}")
 print("-"*55)
 
-for c in range(0, 18, 2):
+for c in range(0, len(listagem), 2):
     print(f"{listagem[c]:.<45}R$ {listagem[c+1]:>7.2F}")
 
 print("-"*55)
