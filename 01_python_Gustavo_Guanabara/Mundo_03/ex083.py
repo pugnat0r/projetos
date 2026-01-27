@@ -1,21 +1,28 @@
 # Crie um programa onde o usuário digite uma expressão qualquer que use parênteses.
-# Seu aplicativo deverá analisar se a expressão passada está com os parênteses abertos e fechados na ordem correta.
-par_esq = par_dir = 0
-exp = []
+# Seu aplicativo deverá analisar se a expressão passada está com os parênteses abertos e fechados na ordem correta. 
 
-exp.append(str(input('Digite a expressão: ')))
 
-for i in exp[0]:
-    if i == '(':
-        par_esq += 1
-    elif i == ')':
-        par_dir += 1
-    else:
-        continue
 
-if par_dir % 2 == 0:
-    if par_esq % 2 == 0:
-        print(f'Sua espressão está valida! ')
+pagamentos_parenteses = 0
 
+exp = str(input(f"Digite sua expressão: "))
+
+for i in exp:
+
+    if pagamentos_parenteses == 0 and i == ")":
+
+        print("Sua expressão está ERRADA!")
+        break
+
+    elif i == "(":
+        pagamentos_parenteses += 1
+    elif i  ==  ")":
+        pagamentos_parenteses -= 1
+
+if pagamentos_parenteses == 0:
+    print(f"A expressão está CERTA!")
 else:
-    print(f'Sua espressão está errada! ')
+    print(f"A expressão está ERRADA!")
+
+
+
