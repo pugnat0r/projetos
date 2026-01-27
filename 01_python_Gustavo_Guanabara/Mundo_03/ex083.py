@@ -23,6 +23,6 @@ if pagamentos_parenteses == 0:
     print(f"A expressão está CERTA!")
 else:
     print(f"A expressão está ERRADA!")
-
+# testando dnv
 
 
