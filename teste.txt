@@ -1,3 +1,6 @@
 vamos fazer agora um teste de pull no linux para o github
 
-está funcionando normalmente!!!!1
+está funcionando normalmente!!!!
+
+
+vou editar mais esse arquivo pra nois da´uma olha nesse git pull
