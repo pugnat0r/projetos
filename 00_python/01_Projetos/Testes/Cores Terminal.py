@@ -1,3 +1,6 @@
+NORMAL = "\033[0;30;40m"
+VERDE = "\033[0;32;40m"
+AMARELO = "\033[0;33;40m"
 
 print('Style    |   Text    |   Back')
 
@@ -19,3 +22,6 @@ print('\033[7;30;40m7        |   \033[0;37;40m37      |   \033[0;00;47m47\033[0;
 
 
 print('                     ')
+
+
+print(f"{VERDE}Teste{NORMAL} de {AMARELO}texto{NORMAL} verde")
