@@ -17,7 +17,6 @@ for linha in range(0, 3):
 
 print("-="*30)
 for pos, linha in enumerate(matriz):
-   # print(f'A linha {pos} contém {linha}')
   
     print(f'{" ":<15}[ {linha[0]:^5}] [ {linha[1]:^5} ] [ {linha[2]:^5} ]')
 
