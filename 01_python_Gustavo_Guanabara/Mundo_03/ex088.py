@@ -10,6 +10,7 @@ while True:
     for i in range(0, qtd):
 
         for n in range(0, 6):
+            #
             while True:
 
                 n_temp = randint(1, 60)
@@ -29,12 +30,12 @@ print()
 print("-"*35)
 print(f"{'JOGO NA MEGA SENA':^35}")
 print("-"*35)
-
 print()
+
 for pos, item in enumerate(palpites):
     print(f"Jogo {pos+1}: {item}")
     time.sleep(1)
-print()
 
-print(f"{"< BOA SORTE >":-^35}")
+print()
+print(f"{'< BOA SORTE >':-^35}")
 print()
