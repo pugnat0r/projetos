@@ -1,6 +1,7 @@
 NORMAL = "\033[0;30;40m"
 VERDE = "\033[0;32;40m"
 AMARELO = "\033[0;33;40m"
+VERMELHO = "\033[0;31;40m"
 
 print('Style    |   Text    |   Back')
 
