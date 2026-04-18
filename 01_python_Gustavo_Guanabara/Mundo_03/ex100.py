@@ -9,20 +9,20 @@ from random import randint
 números = []
 
 
-def sorteia(list):
+def sorteia(lst):
 
     for c in range(0, 5):
-        numeros = randint(1, 100)
-        list.append(numeros)
+        numrandom = randint(1, 100)
+        lst.append(numrandom)
 
-    print(f"A lista de todos os números random: {números}")
+    print(f"A lista de todos os números random: {lst}")
 
 
-def somaPar(list):
+def somaPar(lst):
 
     sumtemp = 0
     números_pares = []
-    for p in list:
+    for p in lst:
         if p % 2 == 0:
             números_pares.append(p)
             sumtemp += p
